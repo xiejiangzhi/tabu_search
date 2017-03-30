@@ -39,19 +39,14 @@ module TabuSearch
       end
     end
 
-
-    private
-
     def search_best_neighbour(unit)
-      actions = unit.search_neighbour(self)
+      actions = unit.search_neighbour(self).sort_by! {|data| -data[-1] }
+      return actions[0] if actions[0][-1] > best_fitness
 
-      sorted_actions = actions.sort_by {|data| -data[-1] }
-      return sorted_actions[0] if sorted_actions[0][-1] > best_fitness
-
-      sorted_actions.each do |data|
+      actions.each do |data|
         return data unless tabu_set.include?(data[0])
       end
-      return sorted_actions.first
+      return actions.first
     end
   end
 end
