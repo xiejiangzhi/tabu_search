@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Simple TabuSearch framework}
   spec.description   = %q{Simple TabuSearch framework}
-  # spec.homepage      = "https://"
+  spec.homepage      = "https://github.com/xjz19901211/tabu_search"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
