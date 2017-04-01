@@ -15,7 +15,7 @@ module TabuSearch
     end
 
     def search(unit, times)
-      @best_genome = unit.genome
+      @best_genome = unit.genome.dup
       @best_fitness = unit.fitness
 
       times.times do
